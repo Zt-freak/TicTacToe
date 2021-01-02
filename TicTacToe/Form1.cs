@@ -50,7 +50,7 @@ namespace TicTacToe
             {
                 for (int i = 0; i < 9; i++)
                 {
-                    buttons[i].Text = "";
+                    this.buttons[i].Text = "";
                 }
                 this.gameInProgress = true;
             }
@@ -86,6 +86,20 @@ namespace TicTacToe
                 buttons[0].Text == buttons[4].Text && buttons[4].Text == buttons[8].Text && buttons[0].Text != "" ||
                 buttons[6].Text == buttons[4].Text && buttons[4].Text == buttons[2].Text && buttons[6].Text != ""
             )
+            {
+                Console.WriteLine("Game Over");
+                this.gameInProgress = false;
+            }
+            Boolean hasEmptyTile = false;
+            for (int i = 0; i < 9 && hasEmptyTile == false; i++)
+            {
+
+                if (this.buttons[i].Text == "")
+                {
+                    hasEmptyTile = true;
+                }    
+            }
+            if (hasEmptyTile == false)
             {
                 Console.WriteLine("Game Over");
                 this.gameInProgress = false;
